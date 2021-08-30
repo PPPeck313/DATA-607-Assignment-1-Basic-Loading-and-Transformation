@@ -1,0 +1,19 @@
+---
+title: "DATA 607 - Assignment 1 - Basic Loading and Transformation"
+author: "Preston Peck"
+date: "8/29/2021"
+output: html_document
+---
+
+## Overview
+
+A FiveThirtyEight study categorized the content of 233 Super Bowl ads from 10 major companies and tagged them according to whether or not it was funny, showed the product quickly, partiotic, and/or depicting dangerous siturations in ddition to wheter or not it had a celebirty, animals, or sexual imagery. The study found that comedic ads featuring an animal with elements of sex accounted for the vast majority. <https://projects.fivethirtyeight.com/super-bowl-ads/>
+
+## Import CSV
+
+ads <- read.csv("superbowl-ads.csv")
+ads
+
+## Conclusions
+
+The study concludes that these topics based on overwhelming presence must therefore be the most beloved, however, the study measured quantity, not quality. It supposed that popularity is positive, but renown and notoriety are 2 sides of the same coin and companies, no matter how popular, big, or old, don't always know their audiences. Metrics which might be required to prove quality and effectiveness would be likes and sentiment among comments on the commercial's archive. What would be interesting to do would be to measure reception (and financial impact, though it would no doubt be difficult to isolate in a sea of other campaign pushes) at the time and over time to today to see what's remained culturally relevant and still in our zeitgeist.
