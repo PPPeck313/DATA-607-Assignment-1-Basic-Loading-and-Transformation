@@ -11,8 +11,10 @@ A FiveThirtyEight study categorized the content of 233 Super Bowl ads from 10 ma
 
 ## Import CSV
 
+```{r}
 ads <- read.csv("superbowl-ads.csv")
 ads
+```
 
 ## Conclusions
 
