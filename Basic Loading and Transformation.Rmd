@@ -7,7 +7,7 @@ output: html_document
 
 ## Overview
 
-A FiveThirtyEight study categorized the content of 233 Super Bowl ads from 10 major companies and tagged them according to whether or not it was funny, showed the product quickly, patriotic, and/or depicting dangerous situations in addition to whether or not it had a celebrity, animals, or sexual imagery.
+A FiveThirtyEight study categorized the content of 233 Super Bowl ads from 10 major companies and tagged them according to whether or not it was funny, patriotic, and/or depicting dangerous situations in addition to whether or not it had a celebrity, animals, and/or sexual imagery and whether or not it showed the product quickly.
 
 The study found that comedic ads featuring an animal with elements of sex accounted for the vast majority.
 
@@ -32,17 +32,17 @@ adsSubset <- ads[, !(names(ads) %in% c("superbowl_ads_dot_com_url", "youtube_url
 Conforming boolean columns to start with is/has/can/should
 
 ```{r}
-categories <- c("is_funny",
-                "is_shown_quick",
-                "is_patriotic",
-                "has_celebrity",
-                "has_danger",
-                "has_animals",
-                "has_sex"
+categories <- c("is_funny", 
+  "is_shown_quick", 
+  "is_patriotic", 
+  "has_celebrity", 
+  "has_danger", 
+  "has_animals", 
+  "has_sex"
 )
 
 colnames(adsSubset) = c(
-  "year",
+  "year", 
   "brand",
   categories
 )
