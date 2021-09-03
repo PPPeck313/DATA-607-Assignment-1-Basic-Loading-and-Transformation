@@ -5,7 +5,7 @@ date: "8/29/2021"
 output: html_document
 ---
 
-## Overview
+# Overview
 
 A FiveThirtyEight study categorized the content of 233 Super Bowl ads from 10 major companies and tagged them according to whether or not it was funny, patriotic, and/or depicting dangerous situations in addition to whether or not it had a celebrity, animals, and/or sexual imagery and whether or not it showed the product quickly.
 
@@ -15,24 +15,33 @@ The study found that comedic ads featuring an animal with elements of sex accoun
 
 
 
-## Import CSV
+# Analysis
+### Import CSV
+##### Remote
+
+```{r}
+ads <- read.csv("https://github.com/PPPeck313/DATA-607-Assignment-1-Basic-Loading-and-Transformation/blob/908af816819f69a5f53a8a18be522fedeecb31e8/superbowl-ads.csv")
+```
+
+##### Local
 
 ```{r}
 ads <- read.csv("superbowl-ads.csv")
 ```
 
-## Select Subset
+### Select Subset
 
 ```{r}
 adsSubset <- ads[, !(names(ads) %in% c("superbowl_ads_dot_com_url", "youtube_url"))]
 ```
 
-## Rename Columns
+### Rename Columns
 
 Conforming boolean columns to start with is/has/can/should
 
 ```{r}
-categories <- c("is_funny", 
+categories <- c(
+  "is_funny", 
   "is_shown_quick", 
   "is_patriotic", 
   "has_celebrity", 
@@ -48,7 +57,7 @@ colnames(adsSubset) = c(
 )
 ```
 
-## Transform Data
+### Transform Data
 
 ```{r}
 adsSubset$is_funny <- as.numeric(as.logical(adsSubset$is_funny))
@@ -60,23 +69,60 @@ adsSubset$has_animals <- as.numeric(as.logical(adsSubset$has_animals))
 adsSubset$has_sex <- as.numeric(as.logical(adsSubset$has_sex))
 ```
 
-## Aggregate & Order
+### Aggregate & Order
+##### Count by category
 
 ```{r}
 colSums(adsSubset[!(names(adsSubset) %in% c("year", "brand"))])
+```
 
-adsSubset["total"] <- 1
+##### Count by brand
+
+```{r}
+adsSubset$total <- 1
 
 aggregatedBrandsAdsSubset <- aggregate(adsSubset[c("total")], adsSubset[c("brand")], sum)
 aggregatedBrandsAdsSubset[order(-aggregatedBrandsAdsSubset$total),]
-
-aggregatedCateoryAdsSubset <- aggregate(adsSubset[c("total")], adsSubset[categories], sum)
-aggregatedCateoryAdsSubset[order(-aggregatedCateoryAdsSubset$total),]
 ```
 
+##### Count by category set
 
+```{r}
+aggregateCategoryAdsTotal <- function(columns) {
+  aggregateColumns <- if (missing(columns)) categories else c(columns, categories)
+  
+  aggregatedAdsSubset <- aggregate(adsSubset[c("total")], adsSubset[aggregateColumns], sum)
+  aggregatedAdsSubset$set <- apply(aggregatedAdsSubset, 1, function(row) paste(
+    c(
+      if(row[["is_funny"]] == 1) "Funny",
+      if(row[["is_shown_quick"]] == 1) "Quick",
+      if(row[["is_patriotic"]] == 1) "Patriotic",
+      if(row[["has_celebrity"]] == 1) "Celebrity",
+      if(row[["has_danger"]] == 1) "Danger",
+      if(row[["has_animals"]] == 1) "Animal",
+      if(row[["has_sex"]] == 1) "Sex"
+    ), collapse = ","
+  ))
+  
+  aggregateColumnsOutput <- setdiff(c(aggregateColumns, "set", "total"), categories)
+  aggregateColumnsOrder <- setdiff(c("total", aggregateColumns), categories)
+  aggregatedAdsSubset <- aggregatedAdsSubset[, aggregateColumnsOutput]
+  return(aggregatedAdsSubset)
+}
 
-## Conclusions
+aggregateCategoryAdsSubset <- aggregateCategoryAdsTotal()
+aggregateCategoryAdsSubset[order(-aggregateCategoryAdsSubset$total),]
+```
+
+##### Count by brand and category set
+
+```{r}
+aggregateBrandCategoryAdsSubset <- aggregateCategoryAdsTotal(c("brand"))
+aggregateBrandCategoryAdsSubset <- aggregateBrandCategoryAdsSubset[order(aggregateBrandCategoryAdsSubset$brand, -aggregateBrandCategoryAdsSubset$total),]
+aggregateBrandCategoryAdsSubset[!duplicated(aggregateBrandCategoryAdsSubset$brand),] 
+```
+
+# Conclusions
 
 The study concludes that these topics based on overwhelming presence must therefore be the most beloved, however, the study measured quantity, not quality. It supposed that popularity is positive, but renown and notoriety are two sides of the same coin and companies, no matter how popular, big, or old, don't always know the hearts of their audiences.
 

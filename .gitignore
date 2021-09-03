@@ -91,3 +91,7 @@ lint/tmp/
 # Android Profiling
 *.hprof
 
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata

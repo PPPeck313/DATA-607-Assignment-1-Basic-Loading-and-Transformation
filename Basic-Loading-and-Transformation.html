@@ -171,998 +171,201 @@ pre code {
 </div>
 
 
-<div id="overview" class="section level2">
-<h2>Overview</h2>
-<p>A FiveThirtyEight study categorized the content of 233 Super Bowl ads from 10 major companies and tagged them according to whether or not it was funny, showed the product quickly, partiotic, and/or depicting dangerous siturations in ddition to wheter or not it had a celebirty, animals, or sexual imagery. The study found that comedic ads featuring an animal with elements of sex accounted for the vast majority. <a href="https://projects.fivethirtyeight.com/super-bowl-ads/" class="uri">https://projects.fivethirtyeight.com/super-bowl-ads/</a></p>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>A FiveThirtyEight study categorized the content of 233 Super Bowl ads from 10 major companies and tagged them according to whether or not it was funny, patriotic, and/or depicting dangerous situations in addition to whether or not it had a celebrity, animals, and/or sexual imagery and whether or not it showed the product quickly.</p>
+<p>The study found that comedic ads featuring an animal with elements of sex accounted for the vast majority.</p>
+<p><a href="https://projects.fivethirtyeight.com/super-bowl-ads/" class="uri">https://projects.fivethirtyeight.com/super-bowl-ads/</a></p>
 </div>
-<div id="import-csv" class="section level2">
-<h2>Import CSV</h2>
-<pre class="r"><code>ads &lt;- read.csv(&quot;superbowl-ads.csv&quot;)
-ads</code></pre>
-<pre><code>##     year     brand
-## 1   2018    Toyota
-## 2   2020 Bud Light
-## 3   2006 Bud Light
-## 4   2018   Hynudai
-## 5   2003 Bud Light
-## 6   2020    Toyota
-## 7   2020 Coca-Cola
-## 8   2020       Kia
-## 9   2020   Hynudai
-## 10  2020 Budweiser
-## 11  2010   Hynudai
-## 12  2010 Bud Light
-## 13  2007 Budweiser
-## 14  2002 Budweiser
-## 15  2020       NFL
-## 16  2017       NFL
-## 17  2005 Bud Light
-## 18  2009     Pepsi
-## 19  2004 Bud Light
-## 20  2020   Doritos
-## 21  2007 Bud Light
-## 22  2020     Pepsi
-## 23  2019   Hynudai
-## 24  2009 Budweiser
-## 25  2011       Kia
-## 26  2019   Doritos
-## 27  2019     Pepsi
-## 28  2013   Hynudai
-## 29  2019       NFL
-## 30  2011 Coca-Cola
-## 31  2019     Pepsi
-## 32  2016   Hynudai
-## 33  2010 Bud Light
-## 34  2000   E-Trade
-## 35  2001 Bud Light
-## 36  2018   Doritos
-## 37  2001 Budweiser
-## 38  2018 Coca-Cola
-## 39  2013   Hynudai
-## 40  2004     Pepsi
-## 41  2018       Kia
-## 42  2018     Pepsi
-## 43  2018       NFL
-## 44  2010   E-Trade
-## 45  2017       NFL
-## 46  2000   E-Trade
-## 47  2007   E-Trade
-## 48  2000 Budweiser
-## 49  2013   Doritos
-## 50  2013 Budweiser
-## 51  2007   Doritos
-## 52  2009 Budweiser
-## 53  2012   E-Trade
-## 54  2019 Bud Light
-## 55  2017       Kia
-## 56  2007 Bud Light
-## 57  2011 Bud Light
-## 58  2016     Pepsi
-## 59  2009   Hynudai
-## 60  2011 Coca-Cola
-## 61  2016   Hynudai
-## 62  2009   Doritos
-## 63  2010   Doritos
-## 64  2015   Doritos
-## 65  2007 Coca-Cola
-## 66  2019    Toyota
-## 67  2002 Budweiser
-## 68  2014 Coca-Cola
-## 69  2004 Budweiser
-## 70  2016 Coca-Cola
-## 71  2015 Budweiser
-## 72  2016   Hynudai
-## 73  2001 Bud Light
-## 74  2003 Bud Light
-## 75  2000 Bud Light
-## 76  2018 Coca-Cola
-## 77  2001     Pepsi
-## 78  2014   Doritos
-## 79  2016 Budweiser
-## 80  2004 Budweiser
-## 81  2015 Budweiser
-## 82  2016       Kia
-## 83  2017 Budweiser
-## 84  2000 Budweiser
-## 85  2009 Coca-Cola
-## 86  2015   Doritos
-## 87  2004    Toyota
-## 88  2016       NFL
-## 89  2017   Hynudai
-## 90  2012 Bud Light
-## 91  2008 Budweiser
-## 92  2013   Hynudai
-## 93  2010   Doritos
-## 94  2016 Bud Light
-## 95  2019    Toyota
-## 96  2009 Bud Light
-## 97  2019 Budweiser
-## 98  2003 Bud Light
-## 99  2019 Coca-Cola
-## 100 2012   Hynudai
-## 101 2011   Hynudai
-## 102 2015       Kia
-## 103 2014 Budweiser
-## 104 2007 Bud Light
-## 105 2008   Hynudai
-## 106 2010       NFL
-## 107 2005     Pepsi
-## 108 2018 Budweiser
-## 109 2018 Bud Light
-## 110 2004 Bud Light
-## 111 2002 Budweiser
-## 112 2006 Budweiser
-## 113 2014 Bud Light
-## 114 2009 Coca-Cola
-## 115 2014 Bud Light
-## 116 2003 Bud Light
-## 117 2014    Toyota
-## 118 2009 Bud Light
-## 119 2014       Kia
-## 120 2014   Hynudai
-## 121 2013 Bud Light
-## 122 2008 Bud Light
-## 123 2003 Budweiser
-## 124 2013 Bud Light
-## 125 2011   Doritos
-## 126 2005 Bud Light
-## 127 2005 Budweiser
-## 128 2014   Doritos
-## 129 2008 Bud Light
-## 130 2012     Pepsi
-## 131 2012   Doritos
-## 132 2012    Toyota
-## 133 2016   Doritos
-## 134 2002 Bud Light
-## 135 2002 Bud Light
-## 136 2013   E-Trade
-## 137 2008 Bud Light
-## 138 2012 Coca-Cola
-## 139 2004     Pepsi
-## 140 2010   Doritos
-## 141 2012       Kia
-## 142 2012       NFL
-## 143 2005 Bud Light
-## 144 2010   Hynudai
-## 145 2004 Bud Light
-## 146 2008 Bud Light
-## 147 2016    Toyota
-## 148 2006 Bud Light
-## 149 2007 Coca-Cola
-## 150 2007 Budweiser
-## 151 2013   Doritos
-## 152 2010 Bud Light
-## 153 2009   Doritos
-## 154 2009 Coca-Cola
-## 155 2009     Pepsi
-## 156 2001   E-Trade
-## 157 2018 Bud Light
-## 158 2015   Doritos
-## 159 2010       Kia
-## 160 2008   Doritos
-## 161 2012 Coca-Cola
-## 162 2011   Hynudai
-## 163 2008 Coca-Cola
-## 164 2000 Bud Light
-## 165 2019       Kia
-## 166 2002 Bud Light
-## 167 2013       Kia
-## 168 2008     Pepsi
-## 169 2019 Bud Light
-## 170 2011   Hynudai
-## 171 2008 Bud Light
-## 172 2008 Bud Light
-## 173 2010   E-Trade
-## 174 2013 Budweiser
-## 175 2001     Pepsi
-## 176 2018 Coca-Cola
-## 177 2003 Bud Light
-## 178 2011     Pepsi
-## 179 2018   E-Trade
-## 180 2016 Budweiser
-## 181 2008 Coca-Cola
-## 182 2013       Kia
-## 183 2014 Coca-Cola
-## 184 2012 Budweiser
-## 185 2004 Bud Light
-## 186 2007 Bud Light
-## 187 2007 Budweiser
-## 188 2019       Kia
-## 189 2002 Budweiser
-## 190 2010   E-Trade
-## 191 2003 Bud Light
-## 192 2018    Toyota
-## 193 2003 Budweiser
-## 194 2013 Budweiser
-## 195 2010 Budweiser
-## 196 2003 Bud Light
-## 197 2002   E-Trade
-## 198 2006 Budweiser
-## 199 2012 Coca-Cola
-## 200 2019 Bud Light
-## 201 2007    Toyota
-## 202 2014   Hynudai
-## 203 2006     Pepsi
-## 204 2006     Pepsi
-## 205 2015     Pepsi
-## 206 2012 Bud Light
-## 207 2009   Doritos
-## 208 2006 Budweiser
-## 209 2014 Bud Light
-## 210 2005     Pepsi
-## 211 2005 Bud Light
-## 212 2007 Bud Light
-## 213 2005     Pepsi
-## 214 2015 Budweiser
-## 215 2019 Bud Light
-## 216 2004 Bud Light
-## 217 2003 Budweiser
-## 218 2009   E-Trade
-## 219 2013     Pepsi
-## 220 2004 Budweiser
-## 221 2009   Hynudai
-## 222 2014 Budweiser
-## 223 2003     Pepsi
-## 224 2015 Coca-Cola
-## 225 2003       NFL
-## 226 2012   Doritos
-## 227 2002     Pepsi
-## 228 2002 Bud Light
-## 229 2000 Budweiser
-## 230 2001 Bud Light
-## 231 2013   Hynudai
-## 232 2015    Toyota
-## 233 2000 Budweiser
-## 234 2001   Doritos
-## 235 2016   Doritos
-## 236 2008 Bud Light
-## 237 2007   Doritos
-## 238 2001       NFL
-## 239 2001     Pepsi
-## 240 2014       NFL
-## 241 2012 Budweiser
-## 242 2001     Pepsi
-## 243 2001   E-Trade
-## 244 2001 Budweiser
-##                                                                                                    superbowl_ads_dot_com_url
-## 1                                                                                https://superbowl-ads.com/good-odds-toyota/
-## 2                                                       https://superbowl-ads.com/2020-bud-light-seltzer-inside-posts-brain/
-## 3                                                                      https://superbowl-ads.com/2006-bud-light-bear-attack/
-## 4                                                        https://superbowl-ads.com/hope-detector-nfl-super-bowl-lii-hyundai/
-## 5                                                                      https://superbowl-ads.com/2003-bud-light-hermit-crab/
-## 6                                                       https://superbowl-ads.com/2020-toyota-go-places-with-cobie-smulders/
-## 7                                                                   https://superbowl-ads.com/2020-coca-cola-energy-show-up/
-## 8                                                                      https://superbowl-ads.com/2020-kia-tough-never-quits/
-## 9                                                                         https://superbowl-ads.com/2020-hyundai-smaht-pahk/
-## 10                                                                https://superbowl-ads.com/2020-budweiser-typical-american/
-## 11  https://superbowl-ads.com/hd-2010-super-bowl-commercial-new-hyundai-super-bowl-44-xliv-ad-hyundai-body-pass-2011-sonata/
-## 12                          https://superbowl-ads.com/hd-exclusive-bud-light-scientist-2010-superbowl-44-xliv-commercial-ad/
-## 13                                                                       https://superbowl-ads.com/2007-budweiser-king-crab/
-## 14                                                     https://superbowl-ads.com/2002-budweiser-ground-zero-clydesdales-bow/
-## 15                                                                              https://superbowl-ads.com/2020-nfl-next-100/
-## 16                                https://superbowl-ads.com/2017-nfl-super-bowl-51-li-tv-commercial-super-bowl-baby-legends/
-## 17                                                                          https://superbowl-ads.com/2005-bud-light-parrot/
-## 18                                                                         https://superbowl-ads.com/2009-pepsi-max-im-good/
-## 19                                                                           https://superbowl-ads.com/2004-bud-light-frank/
-## 20                                     https://superbowl-ads.com/2020-doritos-the-cool-ranch-with-lil-nas-x-and-sam-elliott/
-## 21                                                                            https://superbowl-ads.com/2007-bud-light-slap/
-## 22                                                               https://superbowl-ads.com/2020-pepsi-zero-sugar-done-right/
-## 23                                 https://superbowl-ads.com/2019-hyundai-shopper-assurance-the-elevator-with-jason-bateman/
-## 24                                                         https://superbowl-ads.com/2009-budweiser-clydesdales-generations/
-## 25                                        https://superbowl-ads.com/2011-kia-optima-one-epic-ride-super-bowl-xlv-commercial/
-## 26                            https://superbowl-ads.com/2019-doritos-now-its-hot-with-chance-the-rapper-and-backstreet-boys/
-## 27                                                                        https://superbowl-ads.com/2019-pepsi-more-than-ok/
-## 28                                         https://superbowl-ads.com/video-2013-hyundai-sonata-turbo-super-bowl-xlvii-stuck/
-## 29                                                                                https://superbowl-ads.com/2019-nfl-nfl100/
-## 30                                                                          https://superbowl-ads.com/2011-coca-cola-border/
-## 31                                                                         https://superbowl-ads.com/2019-pepsi-bubly-buble/
-## 32                                                            https://superbowl-ads.com/hyundai-2016-super-bowl-50-ad-chase/
-## 33                          https://superbowl-ads.com/hd-exclusive-stranded-budweiser-2010-super-bowl-44-xliv-commercial-ad/
-## 34                                                                       https://superbowl-ads.com/2000-etrade-monkey-dance/
-## 35                                                                            https://superbowl-ads.com/2001-bud-light-otto/
-## 36                                                              https://superbowl-ads.com/2018-doritos-blaze-vs-mtn-dew-ice/
-## 37                                                              https://superbowl-ads.com/2001-budweiser-what-are-you-doing/
-## 38                                         https://superbowl-ads.com/life-is-short-have-a-diet-coke-because-i-can-diet-coke/
-## 39                                           https://superbowl-ads.com/video-hyundai-2013-super-bowl-xlvii-ad-epic-playdate/
-## 40                                                                     https://superbowl-ads.com/2004-pepsi-bears-find-food/
-## 41                                 https://superbowl-ads.com/2018-kia-stinger-steven-tyler-big-game-ad-feel-something-again/
-## 42                                                                   https://superbowl-ads.com/2018_pepsi_this_is_the_pepsi/
-## 43                                   https://superbowl-ads.com/touchdown-celebrations-to-come-nfl-super-bowl-lii-commercial/
-## 44                           https://superbowl-ads.com/hd-exclusive-e-trade-baby-tears-2010-superbowl-44-xliv-commercial-ad/
-## 45                                           https://superbowl-ads.com/2017-nfl-super-bowl-51-li-tv-commercial-inside-lines/
-## 46                                                             https://superbowl-ads.com/2000-etrade-money-out-of-the-wazoo/
-## 47                                                                         https://superbowl-ads.com/2007-etrade-one-finger/
-## 48                                                                    https://superbowl-ads.com/2000-budweiser-whaasup-game/
-## 49                                   https://superbowl-ads.com/video-doritos-2013-super-bowl-xlvii-commercial-goat-for-sale/
-## 50                                https://superbowl-ads.com/video-budweiser-black-crown-2013-super-bowl-xlvii-ad-coronation/
-## 51                                                                    https://superbowl-ads.com/2007-doritos-live-the-favor/
-## 52                                                          https://superbowl-ads.com/2009-budweiser-clydesdale-plays-fetch/
-## 53                                                                         https://superbowl-ads.com/2012-etrade-fatherhood/
-## 54                                                                https://superbowl-ads.com/2019-bud-light-medieval-barbers/
-## 55                https://superbowl-ads.com/2017-kia-super-bowl-51-li-tv-commercial-heros-journey-starring-melissa-mccarthy/
-## 56                                                            https://superbowl-ads.com/2007-bud-light-but-he-has-bud-light/
-## 57                                                                      https://superbowl-ads.com/2011-bud-light-dog-sitter/
-## 58                                                          https://superbowl-ads.com/pepsi-2016-super-bowl-50-ad-joy-pepsi/
-## 59                                                                      https://superbowl-ads.com/2009-hyundai-angry-bosses/
-## 60                                                                           https://superbowl-ads.com/2011-coca-cola-siege/
-## 61                                                        https://superbowl-ads.com/hyundai-2016-super-bowl-50-ad-ryanville/
-## 62                                                                  https://superbowl-ads.com/2009-doritos-new-flavor-pitch/
-## 63                             https://superbowl-ads.com/hd-exclusive-doritos-samurai-2010-super-bowl-44-xliv-commercial-ad/
-## 64                                                                       https://superbowl-ads.com/2015-doritos-middle-seat/
-## 65                                                                      https://superbowl-ads.com/2007-coca-cola-video-game/
-## 66                                                                       https://superbowl-ads.com/2019-toyota-supra-wizard/
-## 67                                                                     https://superbowl-ads.com/2002-budweiser-how-ya-doin/
-## 68                                                                    https://superbowl-ads.com/2014-coca-going-all-the-way/
-## 69                                                                         https://superbowl-ads.com/2004-budweiser-referee/
-## 70                                           https://superbowl-ads.com/coca-cola-mini-2016-super-bowl-50-ad-hulk-vs-ant-man/
-## 71                                                             https://superbowl-ads.com/2015-budweiser-clydesdale-beer-run/
-## 72                                                       https://superbowl-ads.com/hyundai-2016-super-bowl-50-ad-first-date/
-## 73                                                                   https://superbowl-ads.com/2001-bud-light-pencil-pusher/
-## 74                                                                       https://superbowl-ads.com/2003-bud-light-strongman/
-## 75                                                                   https://superbowl-ads.com/2000-bud-light-hold-the-door/
-## 76                                                         https://superbowl-ads.com/2018-coca-cola-super-bowl-ad-wonder-us/
-## 77                                                                      https://superbowl-ads.com/2001-pepsi-subway-miracle/
-## 78                                                                        https://superbowl-ads.com/2014-doritos-cowboy-kid/
-## 79                                                     https://superbowl-ads.com/budweiser-2016-super-bowl-50-ad-simply-put/
-## 80                                                                          https://superbowl-ads.com/2004-budweiser-donkey/
-## 81                                          https://superbowl-ads.com/budweiser-2015-super-bowl-xlix-ad-brewed-the-hard-way/
-## 82                                                 https://superbowl-ads.com/kia-optima-2016-super-bowl-50-ad-walken-closet/
-## 83                                    https://superbowl-ads.com/2017-budweiser-super-bowl-51-li-tv-commercial-born-hard-way/
-## 84                                                                     https://superbowl-ads.com/2000-budweiser-talking-dog/
-## 85                                                                           https://superbowl-ads.com/2009-coca-cola-heist/
-## 86                                                  https://superbowl-ads.com/doritos-2015-super-bowl-xlix-ad-when-pigs-fly/
-## 87                                                                            https://superbowl-ads.com/2004-toyota-revenge/
-## 88                                              https://superbowl-ads.com/nfl-2016-super-bowl-50-ad-super-bowl-babies-choir/
-## 89                                  https://superbowl-ads.com/2017-hyundai-super-bowl-51-li-tv-commercial-better-super-bowl/
-## 90                                                                      https://superbowl-ads.com/2012-bud-light-rescue-dog/
-## 91                                                  https://superbowl-ads.com/2008-budweiser-dalmatian-trains-hank-for-team/
-## 92                                            https://superbowl-ads.com/video-hyundai-2013-super-bowl-xlvii-ad-santafe-team/
-## 93                      https://superbowl-ads.com/hd-exclusive-casket-funeral-doritos-2010-super-bowl-44-xliv-commercial-ad/
-## 94                                            https://superbowl-ads.com/bud-light-2016-super-bowl-50-ad-the-bud-light-party/
-## 95                                                        https://superbowl-ads.com/2019-toyota-toni-with-antoinette-harris/
-## 96                                                                         https://superbowl-ads.com/2009-bud-light-meeting/
-## 97                                                          https://superbowl-ads.com/2019-budweiser-wind-never-felt-better/
-## 98                                                                            https://superbowl-ads.com/2003-bud-light-yoga/
-## 99                                                                https://superbowl-ads.com/2019-coca-cola-a-coke-is-a-coke/
-## 100                                                                    https://superbowl-ads.com/2012-hyundai-genesis-heart/
-## 101                                           https://superbowl-ads.com/2011-hyundai-super-bowl-commercial-hypnotized-video/
-## 102                                      https://superbowl-ads.com/2015-kia-sorento-the-perfect-getaway-with-pierce-brosnan/
-## 103                                                                https://superbowl-ads.com/2014-budweiser-a-heros-welcome/
-## 104                                                            https://superbowl-ads.com/2007-bud-light-rock-scissors-paper/
-## 105                                                                   https://superbowl-ads.com/2008-hyundai-genesis-luxury/
-## 106                                                              https://superbowl-ads.com/2010-nfl-best-fans-on-the-planet/
-## 107                                                                   https://superbowl-ads.com/2005-pepsi-song-in-a-bottle/
-## 108                                                                                       https://superbowl-ads.com/41891-2/
-## 109                                                                      https://superbowl-ads.com/bud-light-the-bud-knight/
-## 110                                                                    https://superbowl-ads.com/2004-bud-light-sleigh-ride/
-## 111                                                               https://superbowl-ads.com/2002-budweiser-anniversary-card/
-## 112                                                             https://superbowl-ads.com/2006-budweiser-stadium-crowd-wave/
-## 113                                                              https://superbowl-ads.com/2014-bud-light-up-for-whatever-2/
-## 114                                                                         https://superbowl-ads.com/2009-coca-cola-avatar/
-## 115                                                              https://superbowl-ads.com/2014-bud-light-up-for-whatever-1/
-## 116                                                                      https://superbowl-ads.com/2003-bud-light-third-arm/
-## 117                                                     https://superbowl-ads.com/2014-toyota-highlander-no-room-for-boring/
-## 118                                                                          https://superbowl-ads.com/2009-bud-light-skier/
-## 119                                                                            https://superbowl-ads.com/2014-kia-the-truth/
-## 120                                                                     https://superbowl-ads.com/2014-hyundai-elantra-nice/
-## 121                                  https://superbowl-ads.com/video-bud-light-2013-super-bowl-xlvii-commercial-lucky-chair/
-## 122                                                                     https://superbowl-ads.com/2008-bud-light-wheel-suck/
-## 123                                                                 https://superbowl-ads.com/2003-budweiser-great-listener/
-## 124                                              https://superbowl-ads.com/video-bud-light-2013-super-bowl-xlvii-ad-journey/
-## 125                                                                       https://superbowl-ads.com/2011-doritos-pug-attack/
-## 126                                                                       https://superbowl-ads.com/2005-bud-light-skydiver/
-## 127                                                                        https://superbowl-ads.com/2005-budweiser-tryouts/
-## 128                                                                     https://superbowl-ads.com/2014-doritos-time-machine/
-## 129                                                              https://superbowl-ads.com/2008-bud-light-wine-cheese-party/
-## 130                                                                        https://superbowl-ads.com/2012-pepsi-kings-court/
-## 131                                                                 https://superbowl-ads.com/2012-doritos-mans-best-friend/
-## 132                                                              https://superbowl-ads.com/2012-toyota-camry-its-reinvented/
-## 133                                                      https://superbowl-ads.com/doritos-2016-super-bowl-50-ad-ultrasound/
-## 134                                                                         https://superbowl-ads.com/2002-bud-light-falcon/
-## 135                                                                       https://superbowl-ads.com/2002-bud-light-robobash/
-## 136                                    https://superbowl-ads.com/video-etrade-baby-2013-super-bowl-xlvii-commercial-save-it/
-## 137                                                                   https://superbowl-ads.com/2008-bud-light-breathe-fire/
-## 138                                                                  https://superbowl-ads.com/2012-coca-cola-arghh-ny-bear/
-## 139                                                                       https://superbowl-ads.com/2004-pepsi-jimi-hendrix/
-## 140           https://superbowl-ads.com/hd-exclusive-dog-shock-collar-doritos-commercial-super-bowl-44-2010-super-bowl-xliv/
-## 141                                              https://superbowl-ads.com/2012-kia-optima-drive-the-dream-extended-version/
-## 142                                                                             https://superbowl-ads.com/2012-nfl-timeline/
-## 143                                                                         https://superbowl-ads.com/2005-bud-light-sharon/
-## 144              https://superbowl-ads.com/hd-exclusive-2010-super-bowl-xliv-commercial-with-brett-favre-hyundai-commercial/
-## 145                                                                      https://superbowl-ads.com/2004-bud-light-paintball/
-## 146                                                                   https://superbowl-ads.com/2008-bud-light-x-ray-vision/
-## 147                                                      https://superbowl-ads.com/pokemon-2016-super-bowl-50-ad-20-years-2/
-## 148                                                                   https://superbowl-ads.com/2006-bud-light-magic-fridge/
-## 149                                                              https://superbowl-ads.com/2007-coca-cola-happiness-factory/
-## 150                                                                      https://superbowl-ads.com/2007-budweiser-dalmatian/
-## 151                                      https://superbowl-ads.com/video-doritos-2013-super-bowl-xlvii-ad-fashionista-daddy/
-## 152                  https://superbowl-ads.com/hd-exclusive-bud-light-auto-tune-t-pain-2010-superbowl-44-xliv-commercial-ad/
-## 153                                                              https://superbowl-ads.com/2009-doritos-power-of-the-crunch/
-## 154                                                                      https://superbowl-ads.com/2009-coke-zero-mean-troy/
-## 155                                                                             https://superbowl-ads.com/2009-pepsi-anthem/
-## 156                                                                https://superbowl-ads.com/2001-etrade-dot-com-ghost-town/
-## 157                                                                    https://superbowl-ads.com/bud-light-ye-olde-pep-talk/
-## 158                                                                   https://superbowl-ads.com/2015-doritos-cheesy-pirates/
-## 159                              https://superbowl-ads.com/hd-exclusive-kias-big-game-commercial-2010-super-bowl-44-xliv-ad/
-## 160                                                                       https://superbowl-ads.com/2008-doritos-mouse-trap/
-## 161                                                                   https://superbowl-ads.com/2012-coca-cola-superstition/
-## 162                                        https://superbowl-ads.com/2011-hyundai-super-bowl-commercial-deprogramming-video/
-## 163                                                              https://superbowl-ads.com/2008-coca-cola-political-parties/
-## 164                                                                  https://superbowl-ads.com/2000-bud-light-she-has-a-cat/
-## 165                                                         https://superbowl-ads.com/2020-kia-telluride-give-it-everything/
-## 166                                                                   https://superbowl-ads.com/2002-bud-light-satin-sheets/
-## 167                                       https://superbowl-ads.com/video-2013-kia-super-bowl-xlvii-commercial-space-babies/
-## 168                                                   https://superbowl-ads.com/2008-pepsi-every-sip-with-justin-timberlake/
-## 169                                                               https://superbowl-ads.com/2019-bud-light-special-delivery/
-## 170                                   https://superbowl-ads.com/2011-hyundai-super-bowl-commercial-anachronistic-city-video/
-## 171                                                               https://superbowl-ads.com/2008-bud-light-language-of-love/
-## 172                                                       https://superbowl-ads.com/2008-bud-light-jackie-moon-will-ferrell/
-## 173                     https://superbowl-ads.com/hd-exclusive-e-trade-baby-girlfriend-2010-superbowl-44-xliv-commercial-ad/
-## 174                              https://superbowl-ads.com/video-budweiser-black-crown-2013-super-bowl-xlvii-ad-celebration/
-## 175                                                                     https://superbowl-ads.com/2001-pepsi-roller-coaster/
-## 176                                                                https://superbowl-ads.com/diet-coke-twisted-mango-groove/
-## 177                                                              https://superbowl-ads.com/2003-bud-light-upside-down-clown/
-## 178                                                                     https://superbowl-ads.com/2011-pepsi-max-love-hurts/
-## 179                                                         https://superbowl-ads.com/etrade-commercial-this-is-getting-old/
-## 180                                                   https://superbowl-ads.com/budweiser-2016-super-bowl-50-ad-not-backing/
-## 181                                                                       https://superbowl-ads.com/2008-coca-cola-its-mine/
-## 182                                     https://superbowl-ads.com/video-kia-forte-2013-super-bowl-xlvii-commercial-hot-bots/
-## 183                                                                  https://superbowl-ads.com/2014-coca-cola-its-beautiful/
-## 184                                                             https://superbowl-ads.com/2012-budweiser-return-of-the-king/
-## 185                                                                         https://superbowl-ads.com/2004-bud-light-fergus/
-## 186                                                       https://superbowl-ads.com/2007-bud-light-class-with-carlos-mencia/
-## 187                                                              https://superbowl-ads.com/2007-budweiser-don-shula-vs-jayz/
-## 188                                                           https://superbowl-ads.com/2019-kia-the-great-unknowns-what-if/
-## 189                                                                          https://superbowl-ads.com/2002-budweiser-tushy/
-## 190                   https://superbowl-ads.com/hd-exclusive-e-trade-baby-first-class-2010-super-bowl-44-xliv-commercial-ad/
-## 191                                                                  https://superbowl-ads.com/2003-bud-light-mother-in-law/
-## 192                                                              https://superbowl-ads.com/toyota-2018-big-game-ad-one-team/
-## 193                                                                 https://superbowl-ads.com/2003-budweiser-instant-replay/
-## 194                          https://superbowl-ads.com/video-budweiser-2013-super-bowl-xlvii-ad-the-clydesdales-brotherhood/
-## 195                      https://superbowl-ads.com/hd-exclusive-budweiser-body-bridge-2010-super-bowl-44-xliv-commercial-ad/
-## 196                                                                https://superbowl-ads.com/2003-bud-light-no-pets-allowed/
-## 197                                                                    https://superbowl-ads.com/2002-etrade-monkey-musical/
-## 198                                                                    https://superbowl-ads.com/2006-budweiser-on-the-roof/
-## 199                                                                  https://superbowl-ads.com/2012-coca-cola-catch-ne-bear/
-## 200                                                         https://superbowl-ads.com/2019-bud-light-trojan-horse-occupants/
-## 201                                                                    https://superbowl-ads.com/2007-toyota-tundra-see-saw/
-## 202                                                         https://superbowl-ads.com/2014-hyundai-genesis-dads-sixth-sense/
-## 203                                                                   https://superbowl-ads.com/2006-diet-pepsi-jackie-chan/
-## 204                                                              https://superbowl-ads.com/2006-diet-pepsi-brown-and-bubbly/
-## 205                                           https://superbowl-ads.com/pepsi-2015-super-bowl-xlix-ad-halftime-touches-down/
-## 206                                                               https://superbowl-ads.com/2012-bud-light-platinum-factory/
-## 207                                                                     https://superbowl-ads.com/2009-doritos-crystal-ball/
-## 208                                                                       https://superbowl-ads.com/2006-budweiser-streaker/
-## 209                                                                     https://superbowl-ads.com/2014-bud-light-cool-twist/
-## 210                                                                        https://superbowl-ads.com/2005-diet-pepsi-pdiddy/
-## 211                                                                https://superbowl-ads.com/2005-bud-light-cedric-stranded/
-## 212                                                                      https://superbowl-ads.com/2007-bud-light-apes-plan/
-## 213                                                                       https://superbowl-ads.com/2005-diet-pepsi-hot-guy/
-## 214                                                                       https://superbowl-ads.com/2015-budweiser-lost-dog/
-## 215                                                          https://superbowl-ads.com/2019-bud-light-game-of-thrones-joust/
-## 216                                                            https://superbowl-ads.com/2004-bud-light-cedric-gets-massage/
-## 217                                                                       https://superbowl-ads.com/2003-budweiser-roommate/
-## 218                                                                      https://superbowl-ads.com/2009-etrade-talking-baby/
-## 219                                       https://superbowl-ads.com/video-2013-pepsi-next-super-bowl-xlvii-commercial-party/
-## 220                                                                       https://superbowl-ads.com/2004-budweiser-lipstick/
-## 221                                                               https://superbowl-ads.com/2009-hyundai-assurance-contract/
-## 222                                                                     https://superbowl-ads.com/2014-budweiser-puppy-love/
-## 223                                                                     https://superbowl-ads.com/2003-pepsi-twist-osbornes/
-## 224                                                                  https://superbowl-ads.com/2015-coca-cola-make-it-happy/
-## 225                                                               https://superbowl-ads.com/2003-nfl-crazy-with-don-cheadle/
-## 226                                                                       https://superbowl-ads.com/2012-doritos-sling-baby/
-## 227                                                    https://superbowl-ads.com/2002-pepsi-generations-with-britney-spears/
-## 228                                                                  https://superbowl-ads.com/2002-bud-light-cedric-advice/
-## 229                                                                        https://superbowl-ads.com/2000-budweiser-whaasup/
-## 230                                                         https://superbowl-ads.com/2001-bud-light-cedric-the-entertainer/
-## 231                                        https://superbowl-ads.com/video-2013-hyundai-genesis-super-bowl-xlvii-commercial/
-## 232                                              https://superbowl-ads.com/toyota-camry-2015-super-bowl-xlix-ad-my-bold-dad/
-## 233                                                                            https://superbowl-ads.com/2000-budweiser-rex/
-## 234                                                                       https://superbowl-ads.com/2001-doritos-ali-landry/
-## 235                                                    https://superbowl-ads.com/doritos-2016-super-bowl-50-ad-doritos-dogs/
-## 236                                                                 https://superbowl-ads.com/2008-bud-light-ability-to-fly/
-## 237                                                                   https://superbowl-ads.com/2007-doritos-check-out-girl/
-## 238                                                                          https://superbowl-ads.com/2001-nfl-perfect-day/
-## 239                                                                           https://superbowl-ads.com/2001-pepsi-bob-dole/
-## 240                                                                                       https://superbowl-ads.com/nfl-now/
-## 241                                                               https://superbowl-ads.com/2012-budweiser-eternal-optimism/
-## 242                                                          https://superbowl-ads.com/2001-pepsi-kasparov-vs-pepsi-machine/
-## 243                                                                    https://superbowl-ads.com/2001-etrade-security-guard/
-## 244                                                                          https://superbowl-ads.com/2001-budweiser-nsync/
-##                                     youtube_url funny show_product_quickly
-## 1   https://www.youtube.com/watch?v=zeBZvwYQ-hA False                False
-## 2   https://www.youtube.com/watch?v=nbbp0VW7z8w  True                 True
-## 3   https://www.youtube.com/watch?v=yk0MQD5YgV8  True                False
-## 4   https://www.youtube.com/watch?v=lNPccrGk77A False                 True
-## 5   https://www.youtube.com/watch?v=ovQYgnXHooY  True                 True
-## 6   https://www.youtube.com/watch?v=f34Ji70u3nk  True                 True
-## 7   https://www.youtube.com/watch?v=-gAZRN3SCBw  True                False
-## 8   https://www.youtube.com/watch?v=lMs79UXam9A False                False
-## 9   https://www.youtube.com/watch?v=WBvkmWDjsYc  True                 True
-## 10  https://www.youtube.com/watch?v=J0xugdotpp8 False                 True
-## 11  https://www.youtube.com/watch?v=dWQqIeAYfK8 False                 True
-## 12  https://www.youtube.com/watch?v=agISXMN4tng  True                False
-## 13  https://www.youtube.com/watch?v=7KHlMJE84eA  True                 True
-## 14  https://www.youtube.com/watch?v=1MZUvib98Rs False                 True
-## 15  https://www.youtube.com/watch?v=lbkafMhmvMo False                False
-## 16  https://www.youtube.com/watch?v=9csH_Hy-7A4 False                 True
-## 17  https://www.youtube.com/watch?v=-gTWA5AsTP8  True                 True
-## 18  https://www.youtube.com/watch?v=qUZaSf7T7ig  True                False
-## 19  https://www.youtube.com/watch?v=mjN3OY9Eefk  True                 True
-## 20  https://www.youtube.com/watch?v=6xVnq31Vk8Y  True                 True
-## 21  https://www.youtube.com/watch?v=aOfRpCp6Pgw  True                 True
-## 22  https://www.youtube.com/watch?v=Ozb_fJB_z6o False                 True
-## 23  https://www.youtube.com/watch?v=6mfJ0EsqLWs  True                False
-## 24  https://www.youtube.com/watch?v=ukpnHh4eEeQ False                 True
-## 25  https://www.youtube.com/watch?v=8FMU5yPZgwM  True                 True
-## 26  https://www.youtube.com/watch?v=NvIcPAxZ39o False                 True
-## 27  https://www.youtube.com/watch?v=64UH1_D95gQ  True                 True
-## 28  https://www.youtube.com/watch?v=WTf0XGpINJI  True                 True
-## 29  https://www.youtube.com/watch?v=sl8ooTIMk2w  True                 True
-## 30  https://www.youtube.com/watch?v=Aw6-aXMBseo False                False
-## 31  https://www.youtube.com/watch?v=I-_Uh-vZXgo  True                 True
-## 32  https://www.youtube.com/watch?v=r_kXSO9Cph0  True                False
-## 33  https://www.youtube.com/watch?v=zE7wyUmsM0k  True                False
-## 34  https://www.youtube.com/watch?v=Muyq2kMDFoA  True                 True
-## 35  https://www.youtube.com/watch?v=XJEYIR-Cai4  True                 True
-## 36  https://www.youtube.com/watch?v=rZh_CbcVe7M  True                 True
-## 37  https://www.youtube.com/watch?v=gtmJEt0w1k4  True                 True
-## 38  https://www.youtube.com/watch?v=be5DH6jQs38 False                 True
-## 39  https://www.youtube.com/watch?v=YyKVvAZSAug False                False
-## 40  https://www.youtube.com/watch?v=GzWUUZRli6s  True                False
-## 41  https://www.youtube.com/watch?v=9_dE6Z2HK8I False                False
-## 42  https://www.youtube.com/watch?v=0gHYd67OumQ False                 True
-## 43  https://www.youtube.com/watch?v=KUoD-gPDahw  True                 True
-## 44  https://www.youtube.com/watch?v=LgiYL1Ry2I8  True                 True
-## 45  https://www.youtube.com/watch?v=pvKBdrx4quA False                 True
-## 46  https://www.youtube.com/watch?v=oftjwYmlfoA  True                 True
-## 47  https://www.youtube.com/watch?v=jaR5-kefxn4  True                False
-## 48  https://www.youtube.com/watch?v=loimTUjV92Q  True                 True
-## 49  https://www.youtube.com/watch?v=DoM6IhfY8No  True                 True
-## 50  https://www.youtube.com/watch?v=AMP9fgyi41M False                 True
-## 51  https://www.youtube.com/watch?v=kNxgxF-7SfA  True                 True
-## 52  https://www.youtube.com/watch?v=w_ZEGUX4YnI  True                 True
-## 53  https://www.youtube.com/watch?v=fObt1E6Ij_E  True                False
-## 54  https://www.youtube.com/watch?v=hkSQ2Vr41bM  True                 True
-## 55  https://www.youtube.com/watch?v=pVxmT2x3Od4  True                False
-## 56  https://www.youtube.com/watch?v=qIC90Vnc-OI  True                 True
-## 57  https://www.youtube.com/watch?v=JJn1vM7LB1Y  True                 True
-## 58  https://www.youtube.com/watch?v=B9j4Cw5dkBs False                False
-## 59  https://www.youtube.com/watch?v=puG0WOgAUfs  True                 True
-## 60  https://www.youtube.com/watch?v=nAJvHsVoLq0  True                False
-## 61  https://www.youtube.com/watch?v=wBcijELzZi4  True                 True
-## 62  https://www.youtube.com/watch?v=qKKpRhFcKBk  True                 True
-## 63  https://www.youtube.com/watch?v=1ww1k7w4WQ8  True                 True
-## 64  https://www.youtube.com/watch?v=2JqRXLQYF9o  True                False
-## 65  https://www.youtube.com/watch?v=3Tnm53uXIvg False                 True
-## 66  https://www.youtube.com/watch?v=ZuBbnZ3UbJw False                 True
-## 67  https://www.youtube.com/watch?v=mhEYXcCB1Qw  True                 True
-## 68  https://www.youtube.com/watch?v=nO-8ZY7p95o  True                False
-## 69  https://www.youtube.com/watch?v=uO-E2T1hayU  True                False
-## 70  https://www.youtube.com/watch?v=sMkGwCw7iv8  True                 True
-## 71  https://www.youtube.com/watch?v=5tso0er4EUI  True                 True
-## 72  https://www.youtube.com/watch?v=KwUUdl22mkA  True                False
-## 73  https://www.youtube.com/watch?v=J89vbNUzhIE  True                False
-## 74  https://www.youtube.com/watch?v=_cEQ5g6bzdM  True                 True
-## 75  https://www.youtube.com/watch?v=M3IV93HwSkc  True                 True
-## 76  https://www.youtube.com/watch?v=ucCvhK2CZMo False                 True
-## 77  https://www.youtube.com/watch?v=1nmPv4M8Ps8  True                False
-## 78  https://www.youtube.com/watch?v=1X_M47SQF6s  True                 True
-## 79  https://www.youtube.com/watch?v=Le_2S2db0Bk False                 True
-## 80  https://www.youtube.com/watch?v=pmmsr7PAhWU False                 True
-## 81  https://www.youtube.com/watch?v=7_EfXuGev24 False                 True
-## 82  https://www.youtube.com/watch?v=rBkPXt-OpA4  True                False
-## 83  https://www.youtube.com/watch?v=HtBZvl7dIu4 False                False
-## 84                                               True                False
-## 85  https://www.youtube.com/watch?v=icV7fGqPZ2I False                 True
-## 86  https://www.youtube.com/watch?v=YQo0TfuueaY  True                 True
-## 87  https://www.youtube.com/watch?v=5uLJitPWAXM  True                 True
-## 88  https://www.youtube.com/watch?v=9KqekigARfE False                False
-## 89  https://www.youtube.com/watch?v=KpN6fxOorwE False                False
-## 90  https://www.youtube.com/watch?v=Qr3GJqccGi4  True                 True
-## 91  https://www.youtube.com/watch?v=odpagg0jV6I False                 True
-## 92  https://www.youtube.com/watch?v=jvm68nEAU7o  True                 True
-## 93  https://www.youtube.com/watch?v=2IhJl7mBtls  True                 True
-## 94  https://www.youtube.com/watch?v=e0ez2t6oRWY  True                 True
-## 95  https://www.youtube.com/watch?v=wegrVsP3gK4 False                 True
-## 96  https://www.youtube.com/watch?v=L1fL0ZHX2t0  True                 True
-## 97                                              False                False
-## 98  https://www.youtube.com/watch?v=bcV8WN1YIL4  True                 True
-## 99  https://www.youtube.com/watch?v=WTqL_giKNHQ False                 True
-## 100 https://www.youtube.com/watch?v=UxQKSCpOIOI  True                 True
-## 101 https://www.youtube.com/watch?v=5ofcQl6gWeE  True                False
-## 102 https://www.youtube.com/watch?v=nayeYTmEdYw  True                 True
-## 103 https://www.youtube.com/watch?v=XxfxB0O9Uuk False                False
-## 104 https://www.youtube.com/watch?v=kH50-giCeDM  True                 True
-## 105 https://www.youtube.com/watch?v=PsKJUnGEGSs False                 True
-## 106 https://www.youtube.com/watch?v=6cMHr8goUgU False                False
-## 107 https://www.youtube.com/watch?v=vUwROngDC88  True                 True
-## 108 https://www.youtube.com/watch?v=GNVw5f16GEM False                False
-## 109 https://www.youtube.com/watch?v=UizTtcBsNi8  True                 True
-## 110 https://www.youtube.com/watch?v=yQ_nU0_R7PE  True                False
-## 111 https://www.youtube.com/watch?v=LnU2T2P1oxA  True                False
-## 112 https://www.youtube.com/watch?v=4WeAvfP1ikU  True                 True
-## 113 https://www.youtube.com/watch?v=PnOW5qj_R6A False                 True
-## 114 https://www.youtube.com/watch?v=Kwke0LNardc  True                False
-## 115                                              True                 True
-## 116                                              True                 True
-## 117 https://www.youtube.com/watch?v=b01P9PaaoLk  True                 True
-## 118 https://www.youtube.com/watch?v=LEVQAU_LITI  True                 True
-## 119 https://www.youtube.com/watch?v=FTNMYoKHwvU False                False
-## 120 https://www.youtube.com/watch?v=2jMWybAKjWw  True                 True
-## 121 https://www.youtube.com/watch?v=7HMTkEMdqBQ  True                 True
-## 122 https://www.youtube.com/watch?v=WX8Du9pusdA  True                 True
-## 123 https://www.youtube.com/watch?v=zx4SnN9HuRw  True                 True
-## 124 https://www.youtube.com/watch?v=leptS7k6sLE  True                 True
-## 125 https://www.youtube.com/watch?v=1A6frF5zfDE  True                 True
-## 126 https://www.youtube.com/watch?v=Y9wyIID8Khs  True                False
-## 127                                              True                False
-## 128 https://www.youtube.com/watch?v=Y-P0Hs0ADJY  True                 True
-## 129 https://www.youtube.com/watch?v=aEWtTVaIH0M  True                False
-## 130 https://www.youtube.com/watch?v=3rZs8ZKTsp0 False                 True
-## 131 https://www.youtube.com/watch?v=kMmd0WaQFGE  True                False
-## 132 https://www.youtube.com/watch?v=oYdJKey7VpU  True                 True
-## 133 https://www.youtube.com/watch?v=Qh_gOK6xDNA  True                 True
-## 134 https://www.youtube.com/watch?v=ZBD4dYTpYAU  True                 True
-## 135 https://www.youtube.com/watch?v=oJvsWvaTr4w  True                False
-## 136 https://www.youtube.com/watch?v=F0nhq4GO90s  True                 True
-## 137 https://www.youtube.com/watch?v=AhqPl1IKVo4  True                 True
-## 138 https://www.youtube.com/watch?v=jhvAXT9R_3U False                 True
-## 139 https://www.youtube.com/watch?v=NOOmu1Rz17Y  True                 True
-## 140 https://www.youtube.com/watch?v=UBaZDWIs3fs  True                 True
-## 141 https://www.youtube.com/watch?v=9RI6OGXq11Y  True                False
-## 142 https://www.youtube.com/watch?v=CPr4-P19NtE False                 True
-## 143                                              True                 True
-## 144 https://www.youtube.com/watch?v=KqAWv2wCW8I False                False
-## 145 https://www.youtube.com/watch?v=qbS0gF3YdBg  True                 True
-## 146 https://www.youtube.com/watch?v=cOEMI8HRhlA  True                 True
-## 147 https://www.youtube.com/watch?v=KLkQ9c9-QFI  True                False
-## 148 https://www.youtube.com/watch?v=67dRRrRz2t8  True                 True
-## 149 https://www.youtube.com/watch?v=NwZpO6saPxI False                 True
-## 150 https://www.youtube.com/watch?v=esOPYOeotTU False                False
-## 151 https://www.youtube.com/watch?v=w_2k5LMeduc  True                 True
-## 152 https://www.youtube.com/watch?v=bDhjcP02GQg  True                 True
-## 153 https://www.youtube.com/watch?v=7DZao4kN73M  True                 True
-## 154 https://www.youtube.com/watch?v=XKFUcEkIbEg  True                 True
-## 155 https://www.youtube.com/watch?v=WIzKwJmYLNs False                False
-## 156 https://www.youtube.com/watch?v=ONZFkqzuMjI False                False
-## 157 https://www.youtube.com/watch?v=xza7T89Lda4  True                 True
-## 158                                              True                False
-## 159 https://www.youtube.com/watch?v=7q2yVq6fDEg  True                 True
-## 160 https://www.youtube.com/watch?v=h8qgk5tXuUA  True                 True
-## 161 https://www.youtube.com/watch?v=x1nttVdja9s False                 True
-## 162 https://www.youtube.com/watch?v=32d5c_IW2Xc False                False
-## 163 https://www.youtube.com/watch?v=2_LWZe2BGaE  True                 True
-## 164                                              True                False
-## 165 https://www.youtube.com/watch?v=sS8dkRhDirY False                False
-## 166 https://www.youtube.com/watch?v=-LwSb4cCAnw  True                False
-## 167 https://www.youtube.com/watch?v=k5vbGQb7jR0  True                False
-## 168 https://www.youtube.com/watch?v=AKKM8sP24BE  True                False
-## 169 https://www.youtube.com/watch?v=eIlX0Gg0GRI  True                 True
-## 170 https://www.youtube.com/watch?v=-BVMOKtawUk False                False
-## 171 https://www.youtube.com/watch?v=Ao0x4zsb724  True                 True
-## 172 https://www.youtube.com/watch?v=ecqiZn2DDFQ  True                 True
-## 173 https://www.youtube.com/watch?v=tbLTl7egwlU  True                 True
-## 174 https://www.youtube.com/watch?v=2WNvlXoDs7w False                 True
-## 175 https://www.youtube.com/watch?v=MwfL-DkL1Vg  True                 True
-## 176 https://www.youtube.com/watch?v=nkGd47iB-wU False                 True
-## 177 https://www.youtube.com/watch?v=DTvxyDwP2CA  True                 True
-## 178 https://www.youtube.com/watch?v=r4eyQBvcBUA  True                 True
-## 179 https://www.youtube.com/watch?v=Qx5-AZlfjp4  True                False
-## 180 https://www.youtube.com/watch?v=to4dhysGYD0 False                 True
-## 181 https://www.youtube.com/watch?v=-ACk9mRky5k  True                 True
-## 182 https://www.youtube.com/watch?v=yhPBzlB6VJI  True                 True
-## 183 https://www.youtube.com/watch?v=D4BC8zUfNhU False                 True
-## 184 https://www.youtube.com/watch?v=TieDNumMwOc False                 True
-## 185 https://www.youtube.com/watch?v=j7QA9oHpduk  True                 True
-## 186 https://www.youtube.com/watch?v=670X2MCWzK0  True                 True
-## 187 https://www.youtube.com/watch?v=YnGpb8lbPOI False                False
-## 188 https://www.youtube.com/watch?v=nONhop0Kq-E False                False
-## 189                                              True                 True
-## 190 https://www.youtube.com/watch?v=tVrE5-eiSNA  True                False
-## 191 https://www.youtube.com/watch?v=RuIXFuwLb2s  True                 True
-## 192 https://www.youtube.com/watch?v=QwF3ipuNyfc  True                 True
-## 193 https://www.youtube.com/watch?v=hM79LTkT7ek  True                 True
-## 194 https://www.youtube.com/watch?v=eJucRz8kYo0 False                 True
-## 195 https://www.youtube.com/watch?v=IQHlA9qKJv4  True                 True
-## 196 https://www.youtube.com/watch?v=BKexURCYxtk  True                 True
-## 197 https://www.youtube.com/watch?v=SK1i1iyE7RA  True                 True
-## 198 https://www.youtube.com/watch?v=q05QIp5qbnY  True                 True
-## 199 https://www.youtube.com/watch?v=S2nBBMbjS8w False                 True
-## 200 https://www.youtube.com/watch?v=nScg3KmA_6k  True                 True
-## 201 https://www.youtube.com/watch?v=D81uh6I-2Q4 False                 True
-## 202 https://www.youtube.com/watch?v=CyK63f0I1P0  True                False
-## 203 https://www.youtube.com/watch?v=sx0i7WgBOvs  True                 True
-## 204 https://www.youtube.com/watch?v=d8f-PiELHls  True                 True
-## 205 https://www.youtube.com/watch?v=IUU_ygKs3jA False                 True
-## 206 https://www.youtube.com/watch?v=3LPLXuHlOCI False                 True
-## 207 https://www.youtube.com/watch?v=Fdz0Q0GiEcc  True                 True
-## 208 https://www.youtube.com/watch?v=Zb3fhsfs6ZU  True                False
-## 209 https://www.youtube.com/watch?v=_l1nWWiut0I False                 True
-## 210 https://www.youtube.com/watch?v=eXfNnSOOoVc  True                 True
-## 211 https://www.youtube.com/watch?v=Q5Hu_FBUIsk  True                 True
-## 212 https://www.youtube.com/watch?v=osn2rzClKh0  True                 True
-## 213 https://www.youtube.com/watch?v=bHY2miRSwh4  True                False
-## 214 https://www.youtube.com/watch?v=otCxSnu_HXA False                 True
-## 215 https://www.youtube.com/watch?v=8fhOItB0zUM  True                 True
-## 216 https://www.youtube.com/watch?v=gWqR28uRxXw  True                 True
-## 217 https://www.youtube.com/watch?v=R67qcUIbFhs  True                False
-## 218 https://www.youtube.com/watch?v=PlqWRADszb0  True                 True
-## 219 https://www.youtube.com/watch?v=WAySopBmbtI  True                False
-## 220 https://www.youtube.com/watch?v=zM4rU4jit5k  True                False
-## 221 https://www.youtube.com/watch?v=lzQ2NeqjYS0 False                 True
-## 222 https://www.youtube.com/watch?v=gUGGepL5gGU False                False
-## 223 https://www.youtube.com/watch?v=dnHEqQGl0yA  True                 True
-## 224 https://www.youtube.com/watch?v=1AeG8tCzTGw False                False
-## 225 https://www.youtube.com/watch?v=Bs0Iwwl-5Lk False                False
-## 226 https://www.youtube.com/watch?v=6SWNLDdnz0A  True                 True
-## 227 https://www.youtube.com/watch?v=TG4giyL-4Sk False                 True
-## 228 https://www.youtube.com/watch?v=OfLLLnAngZI  True                 True
-## 229 https://www.youtube.com/watch?v=JJmqCKtJnxM  True                 True
-## 230 https://www.youtube.com/watch?v=h-HHbtwX5vY  True                False
-## 231 https://www.youtube.com/watch?v=mOatp4Xi7IU False                 True
-## 232 https://www.youtube.com/watch?v=9u4--TxE2gI False                 True
-## 233 https://www.youtube.com/watch?v=GgXsLHifz9k  True                False
-## 234 https://www.youtube.com/watch?v=xbrvsJZSxok  True                 True
-## 235 https://www.youtube.com/watch?v=MNRAdrB9TSs  True                 True
-## 236 https://www.youtube.com/watch?v=-axbiEJiRGw  True                 True
-## 237 https://www.youtube.com/watch?v=nIcFZzdXSrU  True                 True
-## 238                                             False                False
-## 239 https://www.youtube.com/watch?v=6h7wifUL8mk  True                False
-## 240                                             False                 True
-## 241 https://www.youtube.com/watch?v=_GeiOdHsW_8 False                 True
-## 242 https://www.youtube.com/watch?v=pldGc0Cpf84  True                False
-## 243 https://www.youtube.com/watch?v=39BL7iqe6pQ  True                False
-## 244 https://www.youtube.com/watch?v=H9YdunAo3Ug False                False
-##     patriotic celebrity danger animals use_sex
-## 1       False     False  False   False   False
-## 2       False      True   True   False   False
-## 3       False     False   True    True   False
-## 4       False     False  False   False   False
-## 5       False     False   True    True    True
-## 6       False      True   True    True   False
-## 7       False      True  False    True   False
-## 8       False      True  False   False   False
-## 9       False      True  False    True   False
-## 10       True      True   True   False   False
-## 11       True     False  False   False   False
-## 12      False     False   True   False    True
-## 13      False     False  False    True    True
-## 14       True     False  False    True   False
-## 15       True      True  False   False   False
-## 16      False     False  False   False   False
-## 17      False     False   True    True    True
-## 18      False     False   True   False   False
-## 19      False     False  False    True    True
-## 20      False      True   True    True   False
-## 21      False     False   True   False   False
-## 22      False      True  False   False   False
-## 23       True      True  False   False   False
-## 24       True     False  False    True   False
-## 25      False     False   True   False    True
-## 26      False      True  False   False   False
-## 27      False      True  False   False    True
-## 28      False     False   True    True   False
-## 29      False      True  False   False   False
-## 30      False     False  False   False   False
-## 31      False      True  False   False   False
-## 32      False     False   True    True   False
-## 33      False     False  False   False   False
-## 34      False     False  False    True   False
-## 35      False     False  False    True   False
-## 36      False      True  False   False   False
-## 37      False     False  False   False   False
-## 38      False      True  False   False   False
-## 39      False     False  False    True   False
-## 40      False     False  False    True   False
-## 41      False      True  False   False   False
-## 42       True      True  False   False   False
-## 43      False      True  False   False   False
-## 44      False     False  False   False   False
-## 45       True      True  False   False   False
-## 46      False     False   True   False   False
-## 47       True     False  False   False   False
-## 48      False     False  False   False   False
-## 49      False     False  False    True   False
-## 50      False     False  False   False    True
-## 51      False     False   True   False    True
-## 52       True     False  False    True   False
-## 53      False     False  False   False   False
-## 54      False     False  False   False   False
-## 55      False      True   True    True   False
-## 56      False     False   True   False   False
-## 57      False     False  False    True   False
-## 58      False      True  False   False   False
-## 59      False     False  False   False   False
-## 60      False     False   True    True   False
-## 61      False      True  False    True    True
-## 62      False     False  False   False   False
-## 63      False     False   True   False   False
-## 64      False     False  False   False    True
-## 65       True     False   True    True   False
-## 66      False     False  False   False   False
-## 67      False     False  False   False   False
-## 68      False     False  False   False   False
-## 69      False     False  False   False   False
-## 70      False      True   True   False   False
-## 71      False     False   True    True   False
-## 72      False      True  False   False   False
-## 73      False     False   True   False    True
-## 74      False     False   True   False   False
-## 75      False     False   True   False   False
-## 76       True     False  False   False   False
-## 77      False     False  False   False    True
-## 78      False     False   True    True   False
-## 79      False      True  False   False   False
-## 80       True     False  False    True   False
-## 81       True     False  False    True   False
-## 82      False      True  False   False   False
-## 83       True     False   True   False   False
-## 84      False     False  False    True   False
-## 85      False     False  False    True   False
-## 86       True     False  False    True   False
-## 87      False     False   True   False   False
-## 88       True      True  False   False   False
-## 89       True     False  False   False   False
-## 90      False     False  False    True    True
-## 91       True     False  False    True   False
-## 92      False     False   True    True   False
-## 93      False     False  False   False   False
-## 94       True      True  False    True   False
-## 95      False     False  False   False   False
-## 96      False     False   True   False   False
-## 97      False     False  False    True   False
-## 98      False     False  False   False    True
-## 99       True     False  False    True   False
-## 100     False     False   True   False   False
-## 101     False     False  False   False   False
-## 102     False      True   True    True    True
-## 103      True     False  False    True   False
-## 104     False     False   True   False   False
-## 105     False     False  False   False   False
-## 106      True     False  False   False   False
-## 107     False     False  False   False   False
-## 108      True     False  False   False   False
-## 109     False     False   True    True   False
-## 110     False     False   True    True    True
-## 111     False     False  False   False   False
-## 112     False     False  False   False   False
-## 113     False      True  False    True    True
-## 114     False     False  False    True   False
-## 115     False      True  False   False    True
-## 116     False     False  False   False    True
-## 117     False      True  False    True   False
-## 118     False     False   True   False    True
-## 119     False      True   True   False   False
-## 120     False      True   True   False    True
-## 121      True      True   True    True    True
-## 122     False     False  False   False   False
-## 123     False     False  False   False   False
-## 124     False      True  False   False   False
-## 125     False     False   True    True   False
-## 126     False     False  False   False   False
-## 127     False     False  False    True   False
-## 128     False     False  False    True   False
-## 129     False     False  False   False   False
-## 130     False      True  False   False   False
-## 131     False     False   True    True   False
-## 132     False     False   True    True    True
-## 133     False     False  False   False   False
-## 134     False     False   True    True    True
-## 135     False     False   True   False   False
-## 136     False     False  False    True   False
-## 137     False     False   True    True   False
-## 138     False     False  False    True   False
-## 139     False     False  False   False   False
-## 140     False     False   True    True   False
-## 141     False      True  False   False    True
-## 142     False      True  False   False   False
-## 143     False     False  False   False    True
-## 144     False      True  False   False   False
-## 145     False     False   True   False   False
-## 146     False     False  False   False    True
-## 147     False     False   True   False   False
-## 148     False     False  False   False   False
-## 149     False     False  False    True   False
-## 150     False     False   True    True   False
-## 151     False     False  False   False   False
-## 152     False      True  False   False   False
-## 153     False     False   True    True    True
-## 154     False      True   True   False   False
-## 155      True      True   True   False   False
-## 156     False     False   True    True   False
-## 157     False     False   True    True   False
-## 158     False     False   True   False    True
-## 159     False     False  False    True    True
-## 160     False     False   True   False   False
-## 161     False     False  False    True   False
-## 162     False     False  False    True   False
-## 163      True      True  False   False   False
-## 164     False     False   True    True    True
-## 165      True     False  False    True   False
-## 166     False     False   True   False    True
-## 167     False     False  False    True    True
-## 168     False      True   True   False    True
-## 169     False     False   True   False   False
-## 170     False     False  False   False   False
-## 171      True      True  False   False    True
-## 172     False      True  False   False    True
-## 173     False     False  False   False    True
-## 174     False     False  False   False    True
-## 175     False     False  False   False    True
-## 176     False     False  False   False    True
-## 177     False     False  False   False   False
-## 178     False     False   True   False    True
-## 179      True     False  False   False    True
-## 180      True     False  False    True   False
-## 181     False      True   True    True   False
-## 182     False     False   True   False    True
-## 183      True     False  False    True   False
-## 184      True     False  False    True   False
-## 185     False     False   True    True   False
-## 186     False      True  False   False   False
-## 187     False      True  False   False   False
-## 188      True     False  False   False   False
-## 189     False     False  False   False    True
-## 190     False     False  False   False   False
-## 191     False     False  False   False   False
-## 192      True     False  False   False   False
-## 193     False     False  False    True   False
-## 194     False     False  False    True   False
-## 195      True     False  False    True   False
-## 196     False     False  False    True   False
-## 197     False     False  False    True    True
-## 198     False     False   True   False   False
-## 199     False     False   True    True   False
-## 200     False     False  False   False   False
-## 201     False     False  False   False   False
-## 202     False     False   True   False    True
-## 203     False      True   True   False   False
-## 204     False      True  False   False    True
-## 205     False     False  False    True   False
-## 206     False     False  False   False   False
-## 207     False     False   True   False   False
-## 208     False     False  False    True    True
-## 209     False     False  False   False   False
-## 210     False      True  False   False    True
-## 211     False      True  False    True    True
-## 212     False     False  False    True   False
-## 213     False      True  False   False    True
-## 214      True     False   True    True   False
-## 215     False     False   True    True   False
-## 216     False      True  False   False    True
-## 217     False     False  False   False    True
-## 218     False     False  False   False   False
-## 219     False     False  False   False    True
-## 220     False      True  False    True    True
-## 221     False     False  False   False   False
-## 222      True     False  False    True   False
-## 223     False      True  False   False   False
-## 224     False     False  False   False   False
-## 225     False      True  False   False   False
-## 226     False     False  False   False   False
-## 227     False      True  False   False    True
-## 228     False      True   True   False    True
-## 229     False     False  False   False   False
-## 230     False      True  False   False    True
-## 231     False     False  False   False   False
-## 232      True     False  False   False   False
-## 233     False     False   True    True   False
-## 234     False      True  False   False    True
-## 235     False     False  False    True   False
-## 236     False     False  False   False   False
-## 237     False     False  False   False    True
-## 238     False      True  False   False   False
-## 239      True      True  False    True    True
-## 240     False     False  False   False   False
-## 241      True     False  False    True    True
-## 242     False      True   True   False   False
-## 243     False     False   True   False   False
-## 244     False      True  False   False   False</code></pre>
+<div id="analysis" class="section level1">
+<h1>Analysis</h1>
+<div id="import-csv" class="section level3">
+<h3>Import CSV</h3>
+<div id="remote" class="section level5">
+<h5>Remote</h5>
+<pre class="r"><code>ads &lt;- read.csv(&quot;https://github.com/PPPeck313/DATA-607-Assignment-1-Basic-Loading-and-Transformation/blob/908af816819f69a5f53a8a18be522fedeecb31e8/superbowl-ads.csv&quot;)</code></pre>
 </div>
-<div id="conclusions" class="section level2">
-<h2>Conclusions</h2>
-<p>The study concludes that these topics based on overwhelming presence must therefore be the most beloved, however, the study measured quantity, not quality. It supposed that popularity is positive, but renown and notoriety are 2 sides of the same coin and companies, no matter how popular, big, or old, don’t always know their audiences. Metrics which might be required to prove quality and effectiveness would be likes and sentiment among comments on the commercial’s archive. What would be interesting to do would be to measure reception (and financial impact, though it would no doubt be difficult to isolate in a sea of other campaign pushes) at the time and over time to today to see what’s remained culturally relevant and still in our zeitgeist.</p>
+<div id="local" class="section level5">
+<h5>Local</h5>
+<pre class="r"><code>ads &lt;- read.csv(&quot;superbowl-ads.csv&quot;)</code></pre>
+</div>
+</div>
+<div id="select-subset" class="section level3">
+<h3>Select Subset</h3>
+<pre class="r"><code>adsSubset &lt;- ads[, !(names(ads) %in% c(&quot;superbowl_ads_dot_com_url&quot;, &quot;youtube_url&quot;))]</code></pre>
+</div>
+<div id="rename-columns" class="section level3">
+<h3>Rename Columns</h3>
+<p>Conforming boolean columns to start with is/has/can/should</p>
+<pre class="r"><code>categories &lt;- c(
+  &quot;is_funny&quot;, 
+  &quot;is_shown_quick&quot;, 
+  &quot;is_patriotic&quot;, 
+  &quot;has_celebrity&quot;, 
+  &quot;has_danger&quot;, 
+  &quot;has_animals&quot;, 
+  &quot;has_sex&quot;
+)
+
+colnames(adsSubset) = c(
+  &quot;year&quot;, 
+  &quot;brand&quot;,
+  categories
+)</code></pre>
+</div>
+<div id="transform-data" class="section level3">
+<h3>Transform Data</h3>
+<pre class="r"><code>adsSubset$is_funny &lt;- as.numeric(as.logical(adsSubset$is_funny))
+adsSubset$is_shown_quick &lt;- as.numeric(as.logical(adsSubset$is_shown_quick))
+adsSubset$is_patriotic &lt;- as.numeric(as.logical(adsSubset$is_patriotic))
+adsSubset$has_celebrity &lt;- as.numeric(as.logical(adsSubset$has_celebrity))
+adsSubset$has_danger &lt;- as.numeric(as.logical(adsSubset$has_danger))
+adsSubset$has_animals &lt;- as.numeric(as.logical(adsSubset$has_animals))
+adsSubset$has_sex &lt;- as.numeric(as.logical(adsSubset$has_sex))</code></pre>
+</div>
+<div id="aggregate-order" class="section level3">
+<h3>Aggregate &amp; Order</h3>
+<div id="count-by-category" class="section level5">
+<h5>Count by category</h5>
+<pre class="r"><code>colSums(adsSubset[!(names(adsSubset) %in% c(&quot;year&quot;, &quot;brand&quot;))])</code></pre>
+<pre><code>##       is_funny is_shown_quick   is_patriotic  has_celebrity     has_danger 
+##            168            166             41             68             75 
+##    has_animals        has_sex 
+##             89             63</code></pre>
+</div>
+<div id="count-by-brand" class="section level5">
+<h5>Count by brand</h5>
+<pre class="r"><code>adsSubset$total &lt;- 1
+
+aggregatedBrandsAdsSubset &lt;- aggregate(adsSubset[c(&quot;total&quot;)], adsSubset[c(&quot;brand&quot;)], sum)
+aggregatedBrandsAdsSubset[order(-aggregatedBrandsAdsSubset$total),]</code></pre>
+<pre><code>##        brand total
+## 1  Bud Light    60
+## 2  Budweiser    43
+## 4    Doritos    25
+## 9      Pepsi    25
+## 6    Hynudai    22
+## 3  Coca-Cola    21
+## 5    E-Trade    13
+## 7        Kia    13
+## 8        NFL    11
+## 10    Toyota    11</code></pre>
+</div>
+<div id="count-by-category-set" class="section level5">
+<h5>Count by category set</h5>
+<pre class="r"><code>aggregateCategoryAdsTotal &lt;- function(columns) {
+  aggregateColumns &lt;- if (missing(columns)) categories else c(columns, categories)
+  
+  aggregatedAdsSubset &lt;- aggregate(adsSubset[c(&quot;total&quot;)], adsSubset[aggregateColumns], sum)
+  aggregatedAdsSubset$set &lt;- apply(aggregatedAdsSubset, 1, function(row) paste(
+    c(
+      if(row[[&quot;is_funny&quot;]] == 1) &quot;Funny&quot;,
+      if(row[[&quot;is_shown_quick&quot;]] == 1) &quot;Quick&quot;,
+      if(row[[&quot;is_patriotic&quot;]] == 1) &quot;Patriotic&quot;,
+      if(row[[&quot;has_celebrity&quot;]] == 1) &quot;Celebrity&quot;,
+      if(row[[&quot;has_danger&quot;]] == 1) &quot;Danger&quot;,
+      if(row[[&quot;has_animals&quot;]] == 1) &quot;Animal&quot;,
+      if(row[[&quot;has_sex&quot;]] == 1) &quot;Sex&quot;
+    ), collapse = &quot;,&quot;
+  ))
+  
+  aggregateColumnsOutput &lt;- setdiff(c(aggregateColumns, &quot;set&quot;, &quot;total&quot;), categories)
+  aggregateColumnsOrder &lt;- setdiff(c(&quot;total&quot;, aggregateColumns), categories)
+  aggregatedAdsSubset &lt;- aggregatedAdsSubset[, aggregateColumnsOutput]
+  return(aggregatedAdsSubset)
+}
+
+aggregateCategoryAdsSubset &lt;- aggregateCategoryAdsTotal()
+aggregateCategoryAdsSubset[order(-aggregateCategoryAdsSubset$total),]</code></pre>
+<pre><code>##                                                  set total
+## 4                                        Funny,Quick    23
+## 18                                Funny,Quick,Danger    15
+## 3                                              Quick    11
+## 38                         Funny,Quick,Danger,Animal    11
+## 28                                Funny,Quick,Animal    10
+## 2                                              Funny     9
+## 30                            Quick,Patriotic,Animal     9
+## 9                                          Celebrity     8
+## 12                             Funny,Quick,Celebrity     8
+## 44                                   Funny,Quick,Sex     8
+## 48                         Funny,Quick,Celebrity,Sex     7
+## 11                                   Quick,Celebrity     6
+## 27                                      Quick,Animal     6
+## 36                               Funny,Danger,Animal     5
+## 50                                  Funny,Danger,Sex     5
+## 51                            Funny,Quick,Danger,Sex     5
+## 55                            Funny,Quick,Animal,Sex     5
+## 62                     Funny,Quick,Danger,Animal,Sex     5
+## 1                                                        4
+## 5                                          Patriotic     4
+## 17                                      Funny,Danger     4
+## 22                      Funny,Quick,Celebrity,Danger     4
+## 26                                      Funny,Animal     4
+## 42                                         Funny,Sex     4
+## 7                                    Quick,Patriotic     3
+## 25                                            Animal     3
+## 29                                  Patriotic,Animal     3
+## 31                      Funny,Quick,Patriotic,Animal     3
+## 41               Funny,Quick,Celebrity,Danger,Animal     3
+## 43                                         Quick,Sex     3
+## 46                               Funny,Celebrity,Sex     3
+## 10                                   Funny,Celebrity     2
+## 13                               Patriotic,Celebrity     2
+## 15                         Quick,Patriotic,Celebrity     2
+## 33                      Funny,Quick,Celebrity,Animal     2
+## 35                                     Danger,Animal     2
+## 39                     Quick,Patriotic,Danger,Animal     2
+## 53                  Funny,Quick,Celebrity,Danger,Sex     2
+## 54                                  Funny,Animal,Sex     2
+## 59                  Funny,Quick,Celebrity,Animal,Sex     2
+## 61                           Funny,Danger,Animal,Sex     2
+## 6                                    Funny,Patriotic     1
+## 8                              Funny,Quick,Patriotic     1
+## 14                         Funny,Patriotic,Celebrity     1
+## 16                   Funny,Quick,Patriotic,Celebrity     1
+## 19                                  Patriotic,Danger     1
+## 20                                  Celebrity,Danger     1
+## 21                            Funny,Celebrity,Danger     1
+## 23                        Patriotic,Celebrity,Danger     1
+## 24                  Quick,Patriotic,Celebrity,Danger     1
+## 32                            Funny,Celebrity,Animal     1
+## 34            Funny,Quick,Patriotic,Celebrity,Animal     1
+## 37                               Quick,Danger,Animal     1
+## 40                     Funny,Celebrity,Danger,Animal     1
+## 45                               Funny,Patriotic,Sex     1
+## 47                               Quick,Celebrity,Sex     1
+## 49               Funny,Quick,Patriotic,Celebrity,Sex     1
+## 52                        Funny,Celebrity,Danger,Sex     1
+## 56                        Quick,Patriotic,Animal,Sex     1
+## 57                        Funny,Celebrity,Animal,Sex     1
+## 58                        Quick,Celebrity,Animal,Sex     1
+## 60              Funny,Patriotic,Celebrity,Animal,Sex     1
+## 63           Funny,Quick,Celebrity,Danger,Animal,Sex     1
+## 64 Funny,Quick,Patriotic,Celebrity,Danger,Animal,Sex     1</code></pre>
+</div>
+<div id="count-by-brand-and-category-set" class="section level5">
+<h5>Count by brand and category set</h5>
+<pre class="r"><code>aggregateBrandCategoryAdsSubset &lt;- aggregateCategoryAdsTotal(c(&quot;brand&quot;))
+aggregateBrandCategoryAdsSubset &lt;- aggregateBrandCategoryAdsSubset[order(aggregateBrandCategoryAdsSubset$brand, -aggregateBrandCategoryAdsSubset$total),]
+aggregateBrandCategoryAdsSubset[!duplicated(aggregateBrandCategoryAdsSubset$brand),] </code></pre>
+<pre><code>##         brand                       set total
+## 53  Bud Light        Funny,Quick,Danger     8
+## 81  Budweiser    Quick,Patriotic,Animal     7
+## 73  Coca-Cola              Quick,Animal     4
+## 15    Doritos               Funny,Quick     5
+## 7     E-Trade                     Funny     2
+## 10    Hynudai                     Quick     4
+## 30        Kia                 Celebrity     2
+## 11        NFL                     Quick     2
+## 124     Pepsi Funny,Quick,Celebrity,Sex     3
+## 12     Toyota                     Quick     3</code></pre>
+</div>
+</div>
+</div>
+<div id="conclusions" class="section level1">
+<h1>Conclusions</h1>
+<p>The study concludes that these topics based on overwhelming presence must therefore be the most beloved, however, the study measured quantity, not quality. It supposed that popularity is positive, but renown and notoriety are two sides of the same coin and companies, no matter how popular, big, or old, don’t always know the hearts of their audiences.</p>
+<p>Metrics which might be required to prove quality and effectiveness would be likes and sentiment among comments on the commercial’s archive. What would be interesting to do would be to measure reception (and financial impact, though it would no doubt be difficult to isolate in a sea of other campaign pushes) at the time and over time to today to see what’s remained culturally relevant and still in our zeitgeist.</p>
 </div>
 
 
