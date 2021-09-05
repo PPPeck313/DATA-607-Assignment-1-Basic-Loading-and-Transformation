@@ -122,6 +122,8 @@ aggregateBrandCategoryAdsSubset <- aggregateBrandCategoryAdsSubset[order(aggrega
 aggregateBrandCategoryAdsSubset[!duplicated(aggregateBrandCategoryAdsSubset$brand),] 
 ```
 
+
+
 # Conclusions
 
 The study concludes that these topics based on overwhelming presence must therefore be the most beloved, however, the study measured quantity, not quality. It supposed that popularity is positive, but renown and notoriety are two sides of the same coin and companies, no matter how popular, big, or old, don't always know the hearts of their audiences.
